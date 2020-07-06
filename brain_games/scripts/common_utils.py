@@ -1,18 +1,11 @@
 import prompt
 
 
-def display_game_intro(game_description):
+def greet_user(game_description):
     print('Welcome to the Brain Games!')
-    print(game_description)
-    print()
+    print(game_description, end='\n\n')
 
+    username = prompt.string('May I have your name? ')
+    print(f'Hello, {username}!', end='\n\n')
 
-def get_username():
-    return prompt.string('May I have your name?')
-
-
-def greet_user(username):
-    print(f'Hello, {username}!')
-
-
-
+    return username
