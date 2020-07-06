@@ -35,3 +35,10 @@ Find the missing elemnt in the arithmetic progression.
 
 ##### Usage Example:
 [![asciicast](https://asciinema.org/a/gaHIID7bhnCN6sL0JzmBnbM2x.svg)](https://asciinema.org/a/gaHIID7bhnCN6sL0JzmBnbM2x)
+
+#### Brain Prime
+
+Answer "yes" if given number is prime. Otherwise answer "no".
+
+##### Usage Example:
+[![asciicast](https://asciinema.org/a/vBxznRPHxu8h4yCuRH40H7fzo.svg)](https://asciinema.org/a/vBxznRPHxu8h4yCuRH40H7fzo)
