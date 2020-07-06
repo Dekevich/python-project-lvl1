@@ -4,3 +4,12 @@
 ![brain games](https://github.com/Dekevich/python-project-lvl1/workflows/brain%20games/badge.svg?branch=master)
 
 ### Brain Games
+
+A collection of simple CLI games
+
+#### Brain Even
+
+Answer "yes" if number is even otherwise answer "no".
+##### Usage Example:
+
+[![asciicast](https://asciinema.org/a/HOyk2C53UXjVc3ssIqwvcQn6N.svg)](https://asciinema.org/a/HOyk2C53UXjVc3ssIqwvcQn6N)
