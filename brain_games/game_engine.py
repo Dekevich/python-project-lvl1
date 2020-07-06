@@ -11,7 +11,31 @@ def greet_user(game_description):
     return username
 
 
-def display_outcome(username, game_data):
+def run_game(question_fn, answer_fn):
+    total_rounds = 3
+    current_round = 1
+
+    while current_round <= total_rounds:
+        question = question_fn()
+        print('Question: {0}'.format(question))
+
+        answer = prompt.string('Your answer: ').lower()
+        correct_answer = answer_fn(question)
+
+        if answer == correct_answer:
+            current_round += 1
+            print('Correct!')
+        else:
+            return {
+                'outcome': 'lose',
+                'answer': answer,
+                'correct': correct_answer,
+            }
+
+    return {'outcome': 'win'}
+
+
+def show_results(username, game_data):
     game_outcome = game_data['outcome']
 
     if game_outcome == 'win':
