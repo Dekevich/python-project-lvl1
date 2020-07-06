@@ -1,7 +1,7 @@
 import math
 import random
 
-from brain_games.game_engine import greet_user, run_game, show_results
+from brain_games.game_engine import run_game
 
 
 def get_two_random_numbers_string(max_num=100):
@@ -15,17 +15,9 @@ def calculate_gcd(numbers_string):
     return str(math.gcd(num1, num2))
 
 
-def brain_even():
-    game_description = 'Find the greatest common divisor of given numbers.'
-    username = greet_user(game_description)
-
-    game_results = run_game(get_two_random_numbers_string, calculate_gcd)
-
-    show_results(username, game_results)
-
-
 def main():
-    brain_even()
+    description = 'Find the greatest common divisor of given numbers.'
+    run_game(description, get_two_random_numbers_string, calculate_gcd)
 
 
 if __name__ == '__main__':

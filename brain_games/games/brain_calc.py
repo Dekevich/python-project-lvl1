@@ -1,6 +1,6 @@
 import random
 
-from brain_games.game_engine import greet_user, run_game, show_results
+from brain_games.game_engine import run_game
 
 
 def generate_random_expr(max_num=100):
@@ -15,17 +15,9 @@ def calculate_expr(expression):
     return str(eval(expression))  # noqa: S307
 
 
-def brain_even():
-    game_description = 'What is the result of the expression?'
-    username = greet_user(game_description)
-
-    game_results = run_game(generate_random_expr, calculate_expr)
-
-    show_results(username, game_results)
-
-
 def main():
-    brain_even()
+    description = 'What is the result of the expression?'
+    run_game(description, generate_random_expr, calculate_expr)
 
 
 if __name__ == '__main__':
