@@ -28,3 +28,10 @@ Find the Greatest Common Divisor of two numbers.
 
 ##### Usage Example:
 [![asciicast](https://asciinema.org/a/v4qcEfhvUt7kXHsvsTvzHhxx6.svg)](https://asciinema.org/a/v4qcEfhvUt7kXHsvsTvzHhxx6)
+
+#### Brain Progression
+
+Find the missing elemnt in the arithmetic progression.
+
+##### Usage Example:
+[![asciicast](https://asciinema.org/a/gaHIID7bhnCN6sL0JzmBnbM2x.svg)](https://asciinema.org/a/gaHIID7bhnCN6sL0JzmBnbM2x)
