@@ -12,4 +12,11 @@ A collection of simple CLI games
 Answer "yes" if number is even otherwise answer "no".
 ##### Usage Example:
 
-[![asciicast](https://asciinema.org/a/HOyk2C53UXjVc3ssIqwvcQn6N.svg)](https://asciinema.org/a/HOyk2C53UXjVc3ssIqwvcQn6N)
+[![asciicast](https://asciinema.org/a/FYyZJvo5jIiqxrjYTJrrhhrKy.svg)](https://asciinema.org/a/FYyZJvo5jIiqxrjYTJrrhhrKy)
+
+#### Brain Calc
+
+Calculate the result of arithmetic expression
+##### Usage Example:
+
+[![asciicast](https://asciinema.org/a/lOySlG75CyMVZHdpLPx5C9Czf.svg)](https://asciinema.org/a/lOySlG75CyMVZHdpLPx5C9Czf)
