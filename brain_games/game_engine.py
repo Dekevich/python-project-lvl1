@@ -1,6 +1,12 @@
 import prompt
 
 
+def run_game(description, question_fn, answer_fn):
+    username = greet_user(description)
+    game_results = game_loop(question_fn, answer_fn)
+    show_results(username, game_results)
+
+
 def greet_user(game_description):
     print('Welcome to the Brain Games!')
     print(game_description, end='\n\n')
@@ -11,7 +17,7 @@ def greet_user(game_description):
     return username
 
 
-def run_game(question_fn, answer_fn):
+def game_loop(question_fn, answer_fn):
     total_rounds = 3
     current_round = 1
 
