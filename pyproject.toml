@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "Dekevich_brain_games"
-version = "0.2.0"
+version = "0.3.0"
 description = "First Hexlet Python Project"
 authors = ["Denis Dekevich <da.dekevich@gmail.com>"]
 packages = [
@@ -9,6 +9,8 @@ packages = [
 
 [tool.poetry.scripts]
 brain-games = "brain_games.scripts.brain_games:main"
+brain-even = "brain_games.scripts.brain_even:main"
+
 
 [tool.poetry.dependencies]
 python = "^3.6"
