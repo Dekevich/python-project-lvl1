@@ -1,4 +1,3 @@
-import ast
 import random
 
 from brain_games.game_engine import greet_user, run_game, show_results
@@ -13,7 +12,7 @@ def generate_random_expr(max_num=100):
 
 
 def calculate_expr(expression):
-    return str(ast.literal_eval(expression))
+    return str(eval(expression))  # noqa: S307
 
 
 def brain_even():
