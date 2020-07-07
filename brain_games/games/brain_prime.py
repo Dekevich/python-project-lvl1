@@ -16,10 +16,6 @@ def is_prime(number):
     return 'yes'
 
 
-def main():
+def run_brain_prime():
     descr = 'Answer "yes" if given number is prime. Otherwise answer "no".'
     run_game(descr, get_random_number, is_prime)
-
-
-if __name__ == '__main__':
-    main()

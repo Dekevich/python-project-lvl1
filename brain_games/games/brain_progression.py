@@ -5,6 +5,11 @@ from brain_games.game_engine import run_game
 MISSING_ELEMENT = '..'
 
 
+def run_brain_progression():
+    description = 'What number is missing in the progression?'
+    run_game(description, generate_progression, find_missing_element)
+
+
 def generate_progression(max_num=100, prog_length=10):
     step = random.randint(1, 10)
     first_element = random.randint(0, max_num)
@@ -35,12 +40,3 @@ def find_missing_element(prog_str):
         return str(prog[1] - step)
 
     return str(prog[missing_element_index - 1] + step)
-
-
-def main():
-    description = 'What number is missing in the progression?'
-    run_game(description, generate_progression, find_missing_element)
-
-
-if __name__ == '__main__':
-    main()
