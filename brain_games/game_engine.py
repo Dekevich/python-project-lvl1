@@ -59,4 +59,4 @@ def show_results(username, game_data):
         print(
             f"'{answer}' is wrong answer ;(. Correct answer was '{correct}'.",
         )
-        print("Let's try again, {0}!".format(username))
+        print(f"Let's try again, {username}!")
