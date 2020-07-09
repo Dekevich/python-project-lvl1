@@ -1,20 +1,28 @@
 import random
 
-from brain_games.game_engine import run_game
+import prompt
+
+START_TEXT = 'What is the result of the expression?'
+MAX_NUMBER = 100
 
 
-def run_brain_calc():
-    description = 'What is the result of the expression?'
-    run_game(description, generate_random_expr, calculate_expr)
+def get_question_and_correct_answer():
+    question = generate_random_expression()
+    correct_answer = calculate_expr(question)
+    return question, correct_answer
 
 
-def generate_random_expr(max_num=100):
+def get_player_answer():
+    return prompt.integer('Your answer: ')
+
+
+def generate_random_expression():
     operands = ('+', '-', '*')
-    number1 = random.randint(0, max_num)
-    number2 = random.randint(0, max_num)
+    number1 = random.randint(0, MAX_NUMBER)
+    number2 = random.randint(0, MAX_NUMBER)
     operand = random.choice(operands)
-    return '{0} {1} {2}'.format(number1, operand, number2)
+    return f'{number1} {operand} {number2}'
 
 
 def calculate_expr(expression):
-    return str(eval(expression))  # noqa: S307
+    return eval(expression)  # noqa: S307

@@ -1,16 +1,20 @@
 import random
 
-from brain_games.game_engine import run_game
+import prompt
+
+START_TEXT = 'Answer "yes" if number is even otherwise answer "no".'
+MAX_NUMBER = 100
 
 
-def run_brain_even():
-    description = 'Answer "yes" if number is even otherwise answer "no".'
-    run_game(description, get_random_number, is_even)
+def get_question_and_correct_answer():
+    question = random.randint(0, MAX_NUMBER)
+    corect_answer = 'yes' if is_even(question) else 'no'
+    return question, corect_answer
 
 
-def get_random_number(max_num=100):
-    return random.randint(0, max_num)
+def get_player_answer():
+    return prompt.string('Your answer: ').lower()
 
 
 def is_even(number):
-    return 'yes' if number % 2 == 0 else 'no'
+    return number % 2 == 0

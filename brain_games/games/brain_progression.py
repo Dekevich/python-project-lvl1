@@ -1,42 +1,29 @@
 import random
 
-from brain_games.game_engine import run_game
+import prompt
 
-MISSING_ELEMENT = '..'
-
-
-def run_brain_progression():
-    description = 'What number is missing in the progression?'
-    run_game(description, generate_progression, find_missing_element)
+START_TEXT = 'What number is missing in the progression?'
+PROGRESSION_LENGTH = 10
+MAX_START_NUMBER = 100
+PLACEHOLDER = '..'
 
 
-def generate_progression(max_num=100, prog_length=10):
+def get_question_and_correct_answer():
+    progression = generate_progression()
+    missing_item_index = random.randint(0, len(progression) - 1)
+    correct_answer = progression[missing_item_index]
+    progression[missing_item_index] = PLACEHOLDER
+    question = ' '.join(str(element) for element in progression)
+
+    return question, correct_answer
+
+
+def get_player_answer():
+    return prompt.integer('Your answer: ')
+
+
+def generate_progression():
+    first = random.randint(0, MAX_START_NUMBER)
     step = random.randint(1, 10)
-    first_element = random.randint(0, max_num)
-    last_element = first_element + step * prog_length
-    missing_element_index = random.randint(0, prog_length - 1)
-    progression = [
-        str(element) for element in
-        range(first_element, last_element + 1, step)
-    ]
-    progression[missing_element_index] = MISSING_ELEMENT
-
-    return ' '.join(progression)
-
-
-def find_missing_element(prog_str):
-    prog = [
-        int(element) if element.isdigit() else element
-        for element in prog_str.split(' ')
-    ]
-    missing_element_index = prog.index(MISSING_ELEMENT)
-    step = 1
-    for idx in range(len(prog) - 1):
-        if prog[idx] != MISSING_ELEMENT and prog[idx + 1] != MISSING_ELEMENT:
-            step = prog[idx + 1] - prog[idx]
-            break
-
-    if missing_element_index == 0:
-        return str(prog[1] - step)
-
-    return str(prog[missing_element_index - 1] + step)
+    last = first + step * (PROGRESSION_LENGTH - 1) + 1
+    return list(range(first, last, step))

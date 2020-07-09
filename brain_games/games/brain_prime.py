@@ -1,21 +1,25 @@
 import random
 
-from brain_games.game_engine import run_game
+import prompt
+
+START_TEXT = 'Answer "yes" if given number is prime. Otherwise answer "no".'
+MAX_NUMBER = 100
 
 
-def get_random_number(max_num=100):
-    return random.randint(0, max_num)
+def get_question_and_correct_answer():
+    question = random.randint(0, MAX_NUMBER)
+    corect_answer = 'yes' if is_prime(question) else 'no'
+    return question, corect_answer
+
+
+def get_player_answer():
+    return prompt.string('Your answer: ').lower()
 
 
 def is_prime(number):
     if number < 2:
-        return 'no'
+        return False
     for divisor in range(2, number // 2 + 1):
         if number % divisor == 0:
-            return 'no'
-    return 'yes'
-
-
-def run_brain_prime():
-    descr = 'Answer "yes" if given number is prime. Otherwise answer "no".'
-    run_game(descr, get_random_number, is_prime)
+            return False
+    return True
