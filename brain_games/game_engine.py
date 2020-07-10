@@ -56,7 +56,5 @@ def show_results(username, game_data):
     elif game_outcome == OUTCOME_LOSE:
         answer = game_data['player_answer']
         correct = game_data['correct_answer']
-        print(
-            f"'{answer}' is wrong answer ;(. Correct answer was '{correct}'.",
-        )
+        print(f"'{answer}' is wrong answer ;(. Correct answer was '{correct}'.")
         print(f"Let's try again, {username}!")
