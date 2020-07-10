@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "Dekevich_brain_games"
-version = "0.9.3"
+version = "1.0.0"
 description = "A collection of simple CLI number games."
 authors = ["Denis Dekevich <da.dekevich@gmail.com>"]
 repository = "https://github.com/Dekevich/python-project-lvl1"
