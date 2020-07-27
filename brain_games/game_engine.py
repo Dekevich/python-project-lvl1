@@ -9,31 +9,36 @@ OUTCOME_WIN = 'win'
 def run_game(game):
     start_text = game.START_TEXT
     question_getter = game.get_question_and_correct_answer
-    player_answer_getter = game.get_player_answer
+    answer_type = game.ANSWER_TYPE
 
-    username = greet_user(start_text)
-    game_results = game_loop(question_getter, player_answer_getter)
+    show_game_intro(start_text)
+    username = get_username()
+    greet_user(username)
+    game_results = game_loop(question_getter, answer_type)
     show_results(username, game_results)
 
 
-def greet_user(game_description):
+def show_game_intro(start_text):
     print('Welcome to the Brain Games!')
-    print(game_description, end='\n\n')
+    print(start_text, end='\n\n')
 
-    username = prompt.string('May I have your name? ')
+
+def get_username():
+    return prompt.string('May I have your name? ')
+
+
+def greet_user(username):
     print(f'Hello, {username}!', end='\n\n')
 
-    return username
 
-
-def game_loop(question_getter, player_answer_getter):
+def game_loop(question_getter, answer_type):
     current_round = START_ROUND
 
     while current_round <= TOTAL_ROUNDS:
         question, correct_answer = question_getter()
         print(f'Question: {question}')
 
-        player_answer = player_answer_getter()
+        player_answer = get_player_answer(answer_type)
 
         if player_answer == correct_answer:
             current_round += 1
@@ -46,6 +51,14 @@ def game_loop(question_getter, player_answer_getter):
             }
 
     return {'outcome': OUTCOME_WIN}
+
+
+def get_player_answer(answer_type):
+    answer_getters = {
+        str: prompt.string,
+        int: prompt.integer,
+    }
+    return answer_getters[answer_type]('Your answer: ')
 
 
 def show_results(username, game_data):

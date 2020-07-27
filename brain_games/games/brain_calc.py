@@ -1,9 +1,9 @@
 import random
-
-import prompt
+from operator import add, mul, sub
 
 START_TEXT = 'What is the result of the expression?'
 MAX_NUMBER = 100
+ANSWER_TYPE = int
 
 
 def get_question_and_correct_answer():
@@ -12,17 +12,21 @@ def get_question_and_correct_answer():
     return question, correct_answer
 
 
-def get_player_answer():
-    return prompt.integer('Your answer: ')
-
-
 def generate_random_expression():
-    operands = ('+', '-', '*')
+    supported_operations = ('+', '-', '*')
     number1 = random.randint(0, MAX_NUMBER)
     number2 = random.randint(0, MAX_NUMBER)
-    operand = random.choice(operands)
-    return f'{number1} {operand} {number2}'
+    operation = random.choice(supported_operations)
+    return f'{number1} {operation} {number2}'
 
 
 def calculate_expr(expression):
-    return eval(expression)  # noqa: S307
+    calc_functions = {
+        '+': add,
+        '-': sub,
+        '*': mul,
+    }
+
+    number1, operation, number2 = expression.split(' ')
+
+    return calc_functions[operation](int(number1), int(number2))

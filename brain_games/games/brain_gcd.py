@@ -1,10 +1,9 @@
 import math
 import random
 
-import prompt
-
 START_TEXT = 'Find the greatest common divisor of given numbers.'
 MAX_NUMBER = 100
+ANSWER_TYPE = int
 
 
 def get_question_and_correct_answer():
@@ -13,10 +12,6 @@ def get_question_and_correct_answer():
     question = f'{num1} {num2}'
     correct_answer = calculate_gcd(num1, num2)
     return question, correct_answer
-
-
-def get_player_answer():
-    return prompt.integer('Your answer: ')
 
 
 def calculate_gcd(num1, num2):
