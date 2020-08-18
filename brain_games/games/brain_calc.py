@@ -8,7 +8,7 @@ ANSWER_TYPE = int
 
 def get_question_and_correct_answer():
     question = generate_random_expression()
-    correct_answer = calculate_expr(question)
+    correct_answer = evaluate(parse(question))
     return question, correct_answer
 
 
@@ -20,13 +20,17 @@ def generate_random_expression():
     return f'{number1} {operation} {number2}'
 
 
-def calculate_expr(expression):
+def parse(expr_string):
+    number1, operation, number2 = expr_string.split(' ')
+    return int(number1), operation, int(number2)
+
+
+def evaluate(expression_elements):
+    number1, operation, number2 = expression_elements
     calc_functions = {
         '+': add,
         '-': sub,
         '*': mul,
     }
 
-    number1, operation, number2 = expression.split(' ')
-
-    return calc_functions[operation](int(number1), int(number2))
+    return calc_functions[operation](number1, number2)
