@@ -7,7 +7,7 @@ MAX_NUMBER = 100
 
 def get_question_and_correct_answer():
     question = generate_random_expression()
-    correct_answer = evaluate(parse(question))
+    correct_answer = str(evaluate(parse(question)))
     return question, correct_answer
 
 

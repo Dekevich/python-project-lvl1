@@ -11,7 +11,7 @@ def get_question_and_correct_answer():  # noqa: WPS210
     progression = generate_progression(first, last, step)
 
     missing_item_index = random.randint(0, PROGRESSION_LENGTH - 1)
-    correct_answer = progression[missing_item_index]
+    correct_answer = str(progression[missing_item_index])
     progression[missing_item_index] = PLACEHOLDER
 
     question = ' '.join(str(element) for element in progression)
