@@ -1,38 +1,26 @@
 import prompt
 
 TOTAL_ROUNDS = 3
-START_ROUND = 1
 OUTCOME_LOSE = 'lose'
 OUTCOME_WIN = 'win'
 
 
 def run_game(game):
-    start_text = game.START_TEXT
-    question_getter = game.get_question_and_correct_answer
-    answer_type = game.ANSWER_TYPE
+    print('Welcome to the Brain Games!')
+    print(game.START_TEXT, end='\n\n')
 
-    show_game_intro(start_text)
-    username = get_username()
-    greet_user(username)
-    game_results = game_loop(question_getter, answer_type)
+    username = prompt.string('May I have your name? ')
+    print(f'Hello, {username}!', end='\n\n')
+
+    game_results = main_game_loop(
+        game.get_question_and_correct_answer,
+        game.ANSWER_TYPE
+    )
     show_results(username, game_results)
 
 
-def show_game_intro(start_text):
-    print('Welcome to the Brain Games!')
-    print(start_text, end='\n\n')
-
-
-def get_username():
-    return prompt.string('May I have your name? ')
-
-
-def greet_user(username):
-    print(f'Hello, {username}!', end='\n\n')
-
-
-def game_loop(question_getter, answer_type):
-    current_round = START_ROUND
+def main_game_loop(question_getter, answer_type):
+    current_round = 1
 
     while current_round <= TOTAL_ROUNDS:
         question, correct_answer = question_getter()
