@@ -2,7 +2,6 @@ import random
 
 START_TEXT = 'Answer "yes" if number is even otherwise answer "no".'
 MAX_NUMBER = 100
-ANSWER_TYPE = str
 
 
 def get_question_and_correct_answer():

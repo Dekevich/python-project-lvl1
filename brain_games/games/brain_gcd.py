@@ -3,7 +3,6 @@ import random
 
 START_TEXT = 'Find the greatest common divisor of given numbers.'
 MAX_NUMBER = 100
-ANSWER_TYPE = int
 
 
 def get_question_and_correct_answer():

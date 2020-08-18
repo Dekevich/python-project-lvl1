@@ -3,7 +3,6 @@ from operator import add, mul, sub
 
 START_TEXT = 'What is the result of the expression?'
 MAX_NUMBER = 100
-ANSWER_TYPE = int
 
 
 def get_question_and_correct_answer():

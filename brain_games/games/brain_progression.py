@@ -4,7 +4,6 @@ START_TEXT = 'What number is missing in the progression?'
 PROGRESSION_LENGTH = 10
 MAX_START_NUMBER = 100
 PLACEHOLDER = '..'
-ANSWER_TYPE = int
 
 
 def get_question_and_correct_answer():  # noqa: WPS210
